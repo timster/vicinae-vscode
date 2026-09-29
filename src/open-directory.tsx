@@ -27,6 +27,7 @@ export default function Command() {
 				<List.Item
 					key={name}
 					title={name}
+					icon="extension_icon.png"
 					actions={
 						<ActionPanel>
 							<Action title="Open in VS Code" onAction={() => openInVSCode(name)} />
