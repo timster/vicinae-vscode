@@ -1,10 +1,9 @@
-import { Action, ActionPanel, List } from "@vicinae/api";
+import { Action, ActionPanel, closeMainWindow, List } from "@vicinae/api";
 import { execFile } from "child_process";
 import { readdirSync } from "fs";
 import { join } from "path";
 
 const DEVELOPER_DIR = "/Users/tim/Developer";
-const CODE_PATH = "/opt/homebrew/bin/code";
 
 function getDirectories(): string[] {
 	return readdirSync(DEVELOPER_DIR, { withFileTypes: true })
@@ -18,7 +17,14 @@ export default function Command() {
 
 	function openInVSCode(name: string) {
 		const fullPath = join(DEVELOPER_DIR, name);
-		execFile(CODE_PATH, [fullPath]);
+		execFile("open", ["-a", "Visual Studio Code", fullPath]);
+		closeMainWindow();
+	}
+
+	function openInTerminal(name: string) {
+		const fullPath = join(DEVELOPER_DIR, name);
+		execFile("open", ["-a", "iTerm", fullPath]);
+		closeMainWindow();
 	}
 
 	return (
@@ -31,6 +37,7 @@ export default function Command() {
 					actions={
 						<ActionPanel>
 							<Action title="Open in VS Code" onAction={() => openInVSCode(name)} />
+							<Action title="Open in iTerm" onAction={() => openInTerminal(name)} />
 						</ActionPanel>
 					}
 				/>
