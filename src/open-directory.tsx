@@ -23,7 +23,7 @@ export default function Command() {
 
 	function openInTerminal(name: string) {
 		const fullPath = join(DEVELOPER_DIR, name);
-		execFile("open", ["-a", "iTerm", fullPath]);
+		execFile("open", ["-a", "Ghostty", fullPath]);
 		closeMainWindow();
 	}
 
@@ -37,7 +37,7 @@ export default function Command() {
 					actions={
 						<ActionPanel>
 							<Action title="Open in VS Code" onAction={() => openInVSCode(name)} />
-							<Action title="Open in iTerm" onAction={() => openInTerminal(name)} />
+							<Action title="Open in Ghostty" onAction={() => openInTerminal(name)} />
 						</ActionPanel>
 					}
 				/>
