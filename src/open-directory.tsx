@@ -1,16 +1,7 @@
 import { Action, ActionPanel, closeMainWindow, List } from "@vicinae/api";
 import { execFile } from "child_process";
-import { readdirSync } from "fs";
 import { join } from "path";
-
-const DEVELOPER_DIR = "/Users/tim/Developer";
-
-function getDirectories(): string[] {
-	return readdirSync(DEVELOPER_DIR, { withFileTypes: true })
-		.filter((entry) => entry.isDirectory())
-		.map((entry) => entry.name)
-		.sort((a, b) => a.localeCompare(b));
-}
+import { DEVELOPER_DIR, getDirectories } from "./directories";
 
 export default function Command() {
 	const dirs = getDirectories();

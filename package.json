@@ -15,6 +15,12 @@
       "title": "Open Directory",
       "description": "Open directory",
       "mode": "view"
+    },
+    {
+      "name": "claude",
+      "title": "Open in Claude Code",
+      "description": "Start a Claude session in Ghostty",
+      "mode": "view"
     }
   ],
   "preferences": [],
